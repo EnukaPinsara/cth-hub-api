@@ -9,3 +9,5 @@
 2025-07-10 12:20:26 [[31merror[39m]: ❌ MongoDB connection error: querySrv ENOTFOUND _mongodb._tcp.cth-hub-cluster.2noepge.mongodb.net
 2025-07-10 12:52:28 [[31merror[39m]: ❌ MongoDB connection error: bad auth : Authentication failed.
 2025-07-10 13:20:38 [[31merror[39m]: ❌ MongoDB connection error: querySrv ENOTFOUND _mongodb._tcp.cth-hub-cluster.2noepge.mongodb.net
+2025-07-10 16:22:21 [[31merror[39m]: ❌ MongoDB connection error: querySrv ENOTFOUND _mongodb._tcp.cth-hub-cluster.2noepge.mongodb.net
+2025-07-10 16:29:42 [[31merror[39m]: ❌ MongoDB connection error: querySrv ENOTFOUND _mongodb._tcp.cth-hub-cluster.2noepge.mongodb.net
