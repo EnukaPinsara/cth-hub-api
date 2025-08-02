@@ -11,3 +11,10 @@
 2025-07-10 13:20:38 [[31merror[39m]: ❌ MongoDB connection error: querySrv ENOTFOUND _mongodb._tcp.cth-hub-cluster.2noepge.mongodb.net
 2025-07-10 16:22:21 [[31merror[39m]: ❌ MongoDB connection error: querySrv ENOTFOUND _mongodb._tcp.cth-hub-cluster.2noepge.mongodb.net
 2025-07-10 16:29:42 [[31merror[39m]: ❌ MongoDB connection error: querySrv ENOTFOUND _mongodb._tcp.cth-hub-cluster.2noepge.mongodb.net
+2025-07-18 09:22:23 [[31merror[39m]: ❌ MongoDB connection error: connection 1 to 159.41.192.40:27017 timed out
+2025-07-23 13:56:21 [[31merror[39m]: ❌ MongoDB connection error: querySrv ENOTFOUND _mongodb._tcp.cth-hub-cluster.2noepge.mongodb.net
+2025-07-31 22:43:02 [[31merror[39m]: ❌ MongoDB connection error: querySrv ECONNREFUSED _mongodb._tcp.cth-hub-cluster.2noepge.mongodb.net
+2025-07-31 22:43:08 [[31merror[39m]: ❌ MongoDB connection error: querySrv ECONNREFUSED _mongodb._tcp.cth-hub-cluster.2noepge.mongodb.net
+2025-07-31 22:43:57 [[31merror[39m]: ❌ MongoDB connection error: querySrv ENOTFOUND _mongodb._tcp.cth-hub-cluster.2noepge.mongodb.net
+2025-07-31 23:26:14 [[31merror[39m]: ❌ MongoDB connection error: querySrv ESERVFAIL _mongodb._tcp.cth-hub-cluster.2noepge.mongodb.net
+2025-08-01 13:30:22 [[31merror[39m]: ❌ MongoDB connection error: querySrv ENOTFOUND _mongodb._tcp.cth-hub-cluster.2noepge.mongodb.net
