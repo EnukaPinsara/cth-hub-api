@@ -5,6 +5,7 @@ const connectToDatabase = require("./src/config/db");
 const logger = require("./src/config/logger");
 
 const inventoryRoutes = require("./src/routes/inventory.routes");
+const staffRoutes = require("./src/routes/staff.routes");
 
 dotenv.config();
 const app = express();
@@ -14,6 +15,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use(`/${process.env.API_URL}/inventory`, inventoryRoutes);
+app.use(`/${process.env.API_URL}/staff`, staffRoutes);
 
 app.get("/", (req, res) => res.send("CTH Hub API Running..."));
 
