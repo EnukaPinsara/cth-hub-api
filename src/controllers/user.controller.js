@@ -12,19 +12,18 @@ const createUser = async (req, res) => {
       return res.status(400).json({ message: "All fields (staff, username, password, role) are required." });
     }
 
-    // 🔹 1. Check if this staff already has a user account
+    // Check if this staff already has a user account
     const staffExists = await User.findOne({ staff });
     if (staffExists) {
-      return res.status(400).json({ message: "User already created for this staff member." });
+      return res.status(400).json({ message: "An account is already created for this member." });
     }
 
-    // 🔹 2. Check if username already exists
+    // Check if username already exists
     const existingUser = await User.findOne({ username });
     if (existingUser) {
       return res.status(400).json({ message: "Username already exists. Choose a different username." });
     }
 
-    // 🔹 3. Hash password
     const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
 
     let newUser = new User({
@@ -37,7 +36,7 @@ const createUser = async (req, res) => {
 
     await newUser.save();
 
-    // 🔹 Populate staff + role for response
+    // Populate staff + role for response
     newUser = await User.findById(newUser._id)
       .populate("staff", "staffId firstName lastName email")
       .populate("role", "name permissions");
@@ -53,7 +52,7 @@ const createUser = async (req, res) => {
 const findAllUsers = async (_req, res) => {
   try {
     const users = await User.find()
-      .populate("staff", "staffId firstName lastName email")
+      .populate("staff", "staffId firstName lastName email profileImageUrl")
       .populate("role", "name permissions")
       .sort({ createdAt: -1 });
 
@@ -68,7 +67,7 @@ const findAllUsers = async (_req, res) => {
 const findUserById = async (req, res) => {
   try {
     const user = await User.findById(req.params.id)
-      .populate("staff", "staffId firstName lastName email")
+      .populate("staff", "staffId firstName lastName email profileImageUrl")
       .populate("role", "name permissions");
 
     if (!user) return res.status(404).json({ message: "User not found" });
@@ -93,7 +92,7 @@ const updateUser = async (req, res) => {
     if (typeof isActive === "boolean") updateData.isActive = isActive;
 
     const updatedUser = await User.findByIdAndUpdate(req.params.id, updateData, { new: true })
-      .populate("staff", "staffId firstName lastName email")
+      .populate("staff", "staffId firstName lastName email profileImageUrl")
       .populate("role", "name permissions");
 
     if (!updatedUser) return res.status(404).json({ message: "User not found for update" });
