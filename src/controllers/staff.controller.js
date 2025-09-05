@@ -1,7 +1,7 @@
 const Staff = require("../models/staff.model");
 const User = require("../models/user.model");
 
-// Create new staff
+// ---------------- CREATE STAFF ----------------
 const createStaff = async (req, res) => {
   try {
     const newStaff = new Staff(req.body);
@@ -12,7 +12,7 @@ const createStaff = async (req, res) => {
   }
 };
 
-// Get all staff members
+// ---------------- GET ALL STAFF ----------------
 const findAllStaff = async (_req, res) => {
   try {
     const staffList = await Staff.find().sort({ createdAt: -1 });
@@ -22,7 +22,7 @@ const findAllStaff = async (_req, res) => {
   }
 };
 
-// Get single staff member by ID
+// ---------------- GET STAFF BY ID ----------------
 const findStaffById = async (req, res) => {
   try {
     const staff = await Staff.findById(req.params.id);
@@ -33,7 +33,7 @@ const findStaffById = async (req, res) => {
   }
 };
 
-// Update staff by ID
+// ---------------- UPDATE STAFF ----------------
 const updateStaff = async (req, res) => {
   try {
     const updated = await Staff.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -44,7 +44,7 @@ const updateStaff = async (req, res) => {
   }
 };
 
-// Delete staff by ID
+// ---------------- DELETE STAFF ----------------
 const deleteStaff = async (req, res) => {
   try {
     const deleted = await Staff.findByIdAndDelete(req.params.id);
@@ -55,41 +55,10 @@ const deleteStaff = async (req, res) => {
   }
 };
 
-// Assign role to a staff member (create a system user)
-const assignRoleToStaff = async (req, res) => {
-  try {
-    const { staffId, username, email, password, roleId } = req.body;
-
-    // Check if staff exists
-    const staff = await Staff.findById(staffId);
-    if (!staff) return res.status(404).json({ message: "Staff not found" });
-
-    // Check if user already exists
-    const existingUser = await User.findOne({ staff: staffId });
-    if (existingUser) return res.status(400).json({ message: "User already exists for this staff" });
-
-    // Create new user
-    const newUser = new User({
-      staff: staffId,
-      username,
-      email,
-      password, // remember to hash password in real implementation
-      role: roleId,
-      isActive: true,
-    });
-
-    await newUser.save();
-    res.status(201).json({ message: "Role assigned and user created successfully", data: newUser });
-  } catch (err) {
-    res.status(500).json({ message: "Error assigning role", error: err.message });
-  }
-};
-
 module.exports = {
   createStaff,
   findAllStaff,
   findStaffById,
   updateStaff,
   deleteStaff,
-  assignRoleToStaff,
 };

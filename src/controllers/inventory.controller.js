@@ -1,7 +1,7 @@
 const Inventory = require("../models/inventory.model");
 const ItemCategory = require("../models/inventory-category.model");
 
-// ********** INVENTORY ITEMS **********
+// **************** INVENTORY ITEMS ****************
 
 // Create new inventory item
 const createItem = async (req, res) => {
@@ -57,7 +57,7 @@ const deleteItem = async (req, res) => {
   }
 };
 
-// ********** ITEM CATEGORIES **********
+// **************** ITEM CATEGORIES ****************
 
 // Create new item category
 const createCategory = async (req, res) => {
