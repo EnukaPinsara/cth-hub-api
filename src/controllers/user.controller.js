@@ -36,7 +36,6 @@ const createUser = async (req, res) => {
 
     await newUser.save();
 
-    // Populate staff + role for response
     newUser = await User.findById(newUser._id)
       .populate("staff", "staffId firstName lastName email")
       .populate("role", "name permissions");

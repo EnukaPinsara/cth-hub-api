@@ -4,6 +4,8 @@ const cors = require("cors");
 const connectToDatabase = require("./src/config/db");
 const logger = require("./src/config/logger");
 
+// const hotelRoutes = require("./src/routes/hotel.routes");
+const travelAgentRoutes = require("./src/routes/travel-agent.routes");
 const inventoryRoutes = require("./src/routes/inventory.routes");
 const staffRoutes = require("./src/routes/staff.routes");
 const userRoutes = require("./src/routes/user.routes");
@@ -16,6 +18,8 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+// app.use(`/${process.env.API_URL}/hotels`, hotelRoutes);
+app.use(`/${process.env.API_URL}/travel-agents`, travelAgentRoutes);
 app.use(`/${process.env.API_URL}/inventory`, inventoryRoutes);
 app.use(`/${process.env.API_URL}/staff`, staffRoutes);
 app.use(`/${process.env.API_URL}/users`, userRoutes);
